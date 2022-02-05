@@ -71,10 +71,8 @@ def predict():
             
         prediction=model.predict([[age,height,Weight,Diabetic_patient,BP_problem,transplants,chron,allergy,cancer,surg]])
         output=round(prediction[0],2)
-        if output<0:
-            return flask.render_template('result.html',prediction_texts="Please Enter all the Details")
-        else:
-            return flask.render_template('result.html',prediction_text="{} Rupees".format(output))
+        
+        return flask.render_template('result.html', prediction_text='The Predicted Premiumprice is {}'.format(output))
     else:
         return flask.render_template('ind.html')
 
